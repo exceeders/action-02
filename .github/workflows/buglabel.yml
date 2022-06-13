@@ -6,11 +6,11 @@ name: Put bug label
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   
- # pull_request:
- #  branches:
- #   - branch06
    issues:
     types: [opened, edited]
+   
+   issue_comment:
+    types: [created, deleted]
 
   # Allows you to run this workflow manually from the Actions tab
   
@@ -36,7 +36,7 @@ jobs:
       - name: check issue title
         env:
           ISSUE_TITLE: ${{ toJson(github.event.issue.title) }}
-        if: contains(github.event.issue.title, 'bug')
+        if: contains(github.event.issue.title, 'bug') || contains(github.event.issue_comment, 'bug')
         run : | 
           echo "$ISSUE_TITLE - it's a bug!, Let's put 'bug' label"
       
