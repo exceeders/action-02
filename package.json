@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/company1111/action-02#readme",
   "dependencies": {
-    "@actions/core": "^1.8.2",
+    "@actions/core": "^1.9.1",
     "@actions/github": "^4.0.0",
     "@octokit/rest": "^18.12.0"
   }
